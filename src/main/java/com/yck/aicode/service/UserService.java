@@ -1,9 +1,14 @@
 package com.yck.aicode.service;
 
+import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
+import com.yck.aicode.model.dto.UserQueryRequest;
 import com.yck.aicode.model.entity.User;
 import com.yck.aicode.model.vo.LoginUserVO;
+import com.yck.aicode.model.vo.UserVO;
 import jakarta.servlet.http.HttpServletRequest;
+
+import java.util.List;
 
 /**
  * 用户 服务层。
@@ -39,6 +44,30 @@ public interface UserService extends IService<User> {
      * @return
      */
     User getLoginUser(HttpServletRequest request);
+
+    /**
+     * 获取脱敏后的用户信息
+     *
+     * @param user 用户信息
+     * @return
+     */
+    UserVO getUserVO(User user);
+
+    /**
+     * 获取脱敏后的用户信息(分页)
+     *
+     * @param userList 用户列表
+     * @return
+     */
+    List<UserVO> getUserVOList(List<User> userList);
+
+    /**
+     * 根据查询条件获取构造数据查询参数
+     *
+     * @param userQueryRequest 查询条件
+     * @return
+     */
+    QueryWrapper getQueryWrapper(UserQueryRequest userQueryRequest);
 
     /**
      * 用户注销
