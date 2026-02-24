@@ -22,4 +22,7 @@ import GlobalFooter from '@/components/GlobalFooter.vue'
 .basic-layout {
   background: none;
 }
+.main-content {
+  margin: 30px 35px 0;
+}
 </style>
