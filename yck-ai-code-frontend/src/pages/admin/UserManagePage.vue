@@ -13,7 +13,7 @@
       </a-form-item>
     </a-form>
     <a-divider />
-
+    <!-- 表格 -->
     <a-table
       :columns="columns"
       :data-source="data"
@@ -47,6 +47,7 @@ import { computed, onMounted, reactive, ref } from 'vue'
 import { deleteUser, listUserVoByPage } from '@/api/userController.ts'
 import { message } from 'ant-design-vue'
 import dayjs from 'dayjs'
+
 const columns = [
   {
     title: 'id',
@@ -82,7 +83,7 @@ const columns = [
   },
 ]
 
-// 数据
+// 展示的数据
 const data = ref<API.UserVO[]>([])
 const total = ref(0)
 
@@ -116,14 +117,14 @@ const pagination = computed(() => {
   }
 })
 
-// 表格变化处理
-const doTableChange = (page: any) => {
+// 表格分页变化时的操作
+const doTableChange = (page: { current: number; pageSize: number }) => {
   searchParams.pageNum = page.current
   searchParams.pageSize = page.pageSize
   fetchData()
 }
 
-// 获取数据
+// 搜索数据
 const doSearch = () => {
   // 重置页码
   searchParams.pageNum = 1
@@ -151,8 +152,10 @@ onMounted(() => {
 })
 </script>
 
-<style>
+<style scoped>
 #userManagePage {
-  width: 100%;
+  padding: 24px;
+  background: white;
+  margin-top: 16px;
 }
 </style>

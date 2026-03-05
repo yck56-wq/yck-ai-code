@@ -20,7 +20,7 @@
         />
       </a-col>
       <!-- 右侧：用户操作区域 -->
-      <a-col flex="80px">
+      <a-col>
         <div class="user-login-status">
           <div v-if="loginUserStore.loginUser.id">
             <a-dropdown>
@@ -52,12 +52,10 @@ import { computed, h, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { type MenuProps, message } from 'ant-design-vue'
 import { useLoginUserStore } from '@/stores/loginUser.ts'
-import { LogoutOutlined } from '@ant-design/icons-vue'
 import { userLogout } from '@/api/userController.ts'
+import { LogoutOutlined, HomeOutlined } from '@ant-design/icons-vue'
 
-// 获取用户登录状态
 const loginUserStore = useLoginUserStore()
-
 const router = useRouter()
 // 当前选中菜单
 const selectedKeys = ref<string[]>(['/'])
@@ -70,13 +68,19 @@ router.afterEach((to, from, next) => {
 const originItems = [
   {
     key: '/',
-    label: '首页',
-    title: '首页',
+    icon: () => h(HomeOutlined),
+    label: '主页',
+    title: '主页',
   },
   {
     key: '/admin/userManage',
     label: '用户管理',
     title: '用户管理',
+  },
+  {
+    key: '/admin/appManage',
+    label: '应用管理',
+    title: '应用管理',
   },
   {
     key: 'others',
@@ -122,7 +126,7 @@ const doLogout = async () => {
     message.success('退出登录成功')
     await router.push('/user/login')
   } else {
-    message.error('用户登录失败' + res.data.message)
+    message.error('退出登录失败，' + res.data.message)
   }
 }
 </script>
@@ -148,5 +152,9 @@ const doLogout = async () => {
   margin: 0;
   font-size: 18px;
   color: #1890ff;
+}
+
+.ant-menu-horizontal {
+  border-bottom: none !important;
 }
 </style>
