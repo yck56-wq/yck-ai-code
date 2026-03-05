@@ -1,4 +1,4 @@
-package com.yck.aicode.model.dto;
+package com.yck.aicode.model.dto.user;
 
 import lombok.Data;
 
