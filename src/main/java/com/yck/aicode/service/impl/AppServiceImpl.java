@@ -14,6 +14,7 @@ import com.yck.aicode.core.handler.StreamHandlerExecutor;
 import com.yck.aicode.exception.BusinessException;
 import com.yck.aicode.exception.ErrorCode;
 import com.yck.aicode.exception.ThrowUtils;
+import com.yck.aicode.model.dto.app.AppAddRequest;
 import com.yck.aicode.model.dto.app.AppQueryRequest;
 import com.yck.aicode.model.entity.App;
 import com.yck.aicode.model.entity.User;
@@ -22,10 +23,7 @@ import com.yck.aicode.model.enums.ChatHistoryMessageTypeEnum;
 import com.yck.aicode.model.enums.CodeGenTypeEnum;
 import com.yck.aicode.model.vo.AppVO;
 import com.yck.aicode.model.vo.UserVO;
-import com.yck.aicode.service.AppService;
-import com.yck.aicode.service.ChatHistoryService;
-import com.yck.aicode.service.ScreenshotService;
-import com.yck.aicode.service.UserService;
+import com.yck.aicode.service.*;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -66,6 +64,30 @@ public class AppServiceImpl extends ServiceImpl<AppMapper, App> implements AppSe
 
     @Resource
     private ScreenshotService screenshotService;
+
+    @Resource
+    private AiCodeGenTypeRoutingService aiCodeGenTypeRoutingService;
+
+    @Override
+    public Long createApp(AppAddRequest appAddRequest, User loginUser) {
+        // 参数校验
+        String initPrompt = appAddRequest.getInitPrompt();
+        ThrowUtils.throwIf(StrUtil.isBlank(initPrompt), ErrorCode.PARAMS_ERROR, "初始化 prompt 不能为空");
+        // 构造入库对象
+        App app = new App();
+        BeanUtil.copyProperties(appAddRequest, app);
+        app.setUserId(loginUser.getId());
+        // 应用名称暂时为 initPrompt 前 12 位
+        app.setAppName(initPrompt.substring(0, Math.min(initPrompt.length(), 12)));
+        // 使用 AI 智能选择代码生成类型
+        CodeGenTypeEnum selectedCodeGenType = aiCodeGenTypeRoutingService.routeCodeGenType(initPrompt);
+        app.setCodeGenType(selectedCodeGenType.getValue());
+        // 插入数据库
+        boolean result = this.save(app);
+        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        log.info("应用创建成功，ID: {}, 类型: {}", app.getId(), selectedCodeGenType.getValue());
+        return app.getId();
+    }
 
     /**
      * 异步生成应用截图并更新封面

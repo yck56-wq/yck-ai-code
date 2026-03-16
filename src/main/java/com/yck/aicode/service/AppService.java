@@ -2,6 +2,7 @@ package com.yck.aicode.service;
 
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
+import com.yck.aicode.model.dto.app.AppAddRequest;
 import com.yck.aicode.model.dto.app.AppQueryRequest;
 import com.yck.aicode.model.entity.App;
 import com.yck.aicode.model.entity.User;
@@ -39,6 +40,8 @@ public interface AppService extends IService<App> {
      * @return 查询条件
      */
     QueryWrapper getQueryWrapper(AppQueryRequest appQueryRequest);
+
+    Long createApp(AppAddRequest appAddRequest, User loginUser);
 
     /**
      * 异步生成应用截图并更新封面
