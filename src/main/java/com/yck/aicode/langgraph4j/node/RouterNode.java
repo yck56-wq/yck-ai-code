@@ -2,7 +2,7 @@ package com.yck.aicode.langgraph4j.node;
 
 import com.yck.aicode.langgraph4j.state.WorkflowContext;
 import com.yck.aicode.model.enums.CodeGenTypeEnum;
-import com.yck.aicode.service.AiCodeGenTypeRoutingService;
+import com.yck.aicode.ai.AiCodeGenTypeRoutingService;
 import com.yck.aicode.utils.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.bsc.langgraph4j.action.AsyncNodeAction;

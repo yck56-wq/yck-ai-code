@@ -1,12 +1,11 @@
 package com.yck.aicode.service;
 
+import com.yck.aicode.ai.AiCodeGenTypeRoutingService;
 import com.yck.aicode.model.enums.CodeGenTypeEnum;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @SpringBootTest

@@ -1,4 +1,4 @@
-package com.yck.aicode.service;
+package com.yck.aicode.ai;
 
 import com.yck.aicode.model.enums.CodeGenTypeEnum;
 import dev.langchain4j.service.SystemMessage;
