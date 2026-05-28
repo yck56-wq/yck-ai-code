@@ -11,6 +11,7 @@
     <groupId>com.yck</groupId>
     <artifactId>yck-ai-code</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>yck-ai-code</name>
     <description>yck-ai-code</description>
     <url/>
@@ -20,6 +21,9 @@
     <developers>
         <developer/>
     </developers>
+    <modules>
+        <module>yck-ai-code-microservice</module>
+    </modules>
     <scm>
         <connection/>
         <developerConnection/>
