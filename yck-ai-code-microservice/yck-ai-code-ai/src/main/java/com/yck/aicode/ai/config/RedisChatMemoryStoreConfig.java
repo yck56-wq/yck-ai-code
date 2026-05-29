@@ -1,4 +1,4 @@
-package com.yck.aicode.config;
+package com.yck.aicode.ai.config;
 
 import dev.langchain4j.community.store.memory.chat.redis.RedisChatMemoryStore;
 import lombok.Data;
