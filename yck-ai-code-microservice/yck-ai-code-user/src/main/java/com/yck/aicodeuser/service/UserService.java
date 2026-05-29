@@ -1,11 +1,11 @@
-package com.yck.aicode.service;
+package com.yck.aicodeuser.service;
 
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.core.service.IService;
-import com.yck.aicode.model.dto.user.UserQueryRequest;
-import com.yck.aicode.model.entity.User;
-import com.yck.aicode.model.vo.LoginUserVO;
-import com.yck.aicode.model.vo.UserVO;
+import com.yck.aicodeuser.model.dto.user.UserQueryRequest;
+import com.yck.aicodeuser.model.entity.User;
+import com.yck.aicodeuser.model.vo.LoginUserVO;
+import com.yck.aicodeuser.model.vo.UserVO;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.List;

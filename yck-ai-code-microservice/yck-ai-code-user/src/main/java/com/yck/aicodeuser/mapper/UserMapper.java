@@ -1,7 +1,7 @@
-package com.yck.aicode.mapper;
+package com.yck.aicodeuser.mapper;
 
 import com.mybatisflex.core.BaseMapper;
-import com.yck.aicode.model.entity.User;
+import com.yck.aicodeuser.model.entity.User;
 
 /**
  * 用户 映射层。

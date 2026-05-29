@@ -1,11 +1,11 @@
-package com.yck.aicode.aop;
+package com.yck.aicodeuser.aop;
 
-import com.yck.aicode.annotation.AuthCheck;
-import com.yck.aicode.exception.BusinessException;
-import com.yck.aicode.exception.ErrorCode;
-import com.yck.aicode.model.entity.User;
-import com.yck.aicode.model.enums.UserRoleEnum;
-import com.yck.aicode.service.UserService;
+import com.yck.aicodeuser.annotation.AuthCheck;
+import com.yck.aicodeuser.exception.BusinessException;
+import com.yck.aicodeuser.exception.ErrorCode;
+import com.yck.aicodeuser.model.entity.User;
+import com.yck.aicodeuser.model.enums.UserRoleEnum;
+import com.yck.aicodeuser.service.UserService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;

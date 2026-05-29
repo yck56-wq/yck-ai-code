@@ -1,19 +1,19 @@
-package com.yck.aicode.service.impl;
+package com.yck.aicodeuser.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import com.mybatisflex.core.query.QueryWrapper;
 import com.mybatisflex.spring.service.impl.ServiceImpl;
-import com.yck.aicode.exception.BusinessException;
-import com.yck.aicode.exception.ErrorCode;
-import com.yck.aicode.model.dto.user.UserQueryRequest;
-import com.yck.aicode.model.entity.User;
-import com.yck.aicode.mapper.UserMapper;
-import com.yck.aicode.model.enums.UserRoleEnum;
-import com.yck.aicode.model.vo.LoginUserVO;
-import com.yck.aicode.model.vo.UserVO;
-import com.yck.aicode.service.UserService;
+import com.yck.aicodeuser.exception.BusinessException;
+import com.yck.aicodeuser.exception.ErrorCode;
+import com.yck.aicodeuser.model.dto.user.UserQueryRequest;
+import com.yck.aicodeuser.model.entity.User;
+import com.yck.aicodeuser.mapper.UserMapper;
+import com.yck.aicodeuser.model.enums.UserRoleEnum;
+import com.yck.aicodeuser.model.vo.LoginUserVO;
+import com.yck.aicodeuser.model.vo.UserVO;
+import com.yck.aicodeuser.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.yck.aicode.constant.UserConstant.USER_LOGIN_STATE;
+import static com.yck.aicodeuser.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 用户 服务层实现。
