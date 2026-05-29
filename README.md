@@ -4,7 +4,7 @@
 
 YCK AI 零代码应用生成平台是一个基于 **Spring Boot 3 + LangChain4j + Vue 3** 开发的 AI 应用生成系统。用户只需要输入应用需求，系统即可通过 AI 自动分析需求、生成代码文件，并提供实时预览、可视化编辑、源码下载和后台管理等功能。
 
-![项目首页](docs/images/home.png)
+![项目首页](images/home.png)
 
 ## 技术栈
 
@@ -23,7 +23,7 @@ YCK AI 零代码应用生成平台是一个基于 **Spring Boot 3 + LangChain4j 
 
 生成过程中支持流式输出，用户可以实时看到 AI 的执行过程和生成结果。
 
-![智能代码生成](docs/images/code-generation.png)
+![智能代码生成](images/code-generation.png)
 
 ### 2. 可视化编辑
 
@@ -31,19 +31,19 @@ YCK AI 零代码应用生成平台是一个基于 **Spring Boot 3 + LangChain4j 
 
 这种方式降低了手动修改代码的成本，让用户可以更直观地调整生成结果。
 
-![可视化编辑](docs/images/visual-editor.png)
+![可视化编辑](images/visual-editor.png)
 
 ### 3. 应用源码下载
 
 生成完成后，用户可以下载完整项目源码，方便后续本地运行、二次开发或继续完善。
 
-![源码下载](docs/images/source-download.png)
+![源码下载](images/source-download.png)
 
 ### 4. 精选应用展示
 
 系统支持展示精选应用案例，方便用户浏览已经生成的应用效果。
 
-![精选应用](docs/images/featured-apps.png)
+![精选应用](images/featured-apps.png)
 
 ### 5. 后台管理
 
@@ -51,9 +51,9 @@ YCK AI 零代码应用生成平台是一个基于 **Spring Boot 3 + LangChain4j 
 
 管理员可以查看用户信息、管理用户状态，也可以查看和管理平台中生成的应用数据。
 
-![用户管理](docs/images/user-management.png)
+![用户管理](images/user-management.png)
 
-![应用管理](docs/images/app-management.png)
+![应用管理](images/app-management.png)
 
 ## 项目亮点
 
