@@ -16,7 +16,7 @@ import com.yck.aicode.core.handler.StreamHandlerExecutor;
 import com.yck.aicode.exception.BusinessException;
 import com.yck.aicode.exception.ErrorCode;
 import com.yck.aicode.exception.ThrowUtils;
-import com.yck.aicode.innerservice.InnerScreenShotService;
+import com.yck.aicode.innerservice.InnerScreenshotService;
 import com.yck.aicode.innerservice.InnerUserService;
 import com.yck.aicode.model.dto.app.AppAddRequest;
 import com.yck.aicode.model.dto.app.AppQueryRequest;
@@ -30,6 +30,7 @@ import com.yck.aicode.model.vo.UserVO;
 import com.yck.aicode.service.*;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -52,8 +53,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class AppServiceImpl extends ServiceImpl<AppMapper, App> implements AppService {
 
-    @Resource
-    @Lazy
+    @DubboReference
     private InnerUserService userService;
 
     @Resource
@@ -68,9 +68,8 @@ public class AppServiceImpl extends ServiceImpl<AppMapper, App> implements AppSe
     @Resource
     private VueProjectBuilder vueProjectBuilder;
 
-    @Resource
-    @Lazy
-    private InnerScreenShotService screenshotService;
+    @DubboReference
+    private InnerScreenshotService screenshotService;
 
     @Resource
     private AiCodeGenTypeRoutingServiceFactory aiCodeGenTypeRoutingServiceFactory;
