@@ -9,8 +9,8 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication(exclude = {RedisEmbeddingStoreAutoConfiguration.class})
 @MapperScan("com.yck.aicode.mapper")
 @EnableCaching
-public class YuAiCodeAppApplication {
+public class YckAiCodeAppApplication {
     public static void main(String[] args) {
-        SpringApplication.run(YuAiCodeAppApplication.class, args);
+        SpringApplication.run(YckAiCodeAppApplication.class, args);
     }
 }
